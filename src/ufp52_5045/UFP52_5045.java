@@ -15,14 +15,21 @@ public class UFP52_5045 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        /**
         Stack stack = new Stack();
         
         stack.push(80);
         stack.push(28);
         stack.push(231);
         stack.pop();
+        **/
         
+        CircularQueue queue = new CircularQueue(5);
+        queue.insert(78);
+        queue.insert(123);
+        queue.print();
+        queue.delete();
+        queue.print();
         
     }
     
