@@ -11,14 +11,14 @@ package ufp52_5045;
  */
 public class BinaryNode {
     
-    Object data;                // Information that is to be stored in the node.
-    int leftChild;              // Index of the node's left child
-    int rightChild;             // Index of the node's right child
+    int data;
+    BinaryNode left;
+    BinaryNode right;
     
-    public BinaryNode(Object info) {
-        data = info;
-        leftChild = -1;         // -1 means there is no child
-        rightChild = -1;
+    BinaryNode(int data) {
+        this.data = data;
+        left = null;
+        right = null;
     }
     
 }
