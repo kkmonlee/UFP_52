@@ -15,6 +15,9 @@ public class TreeArray {
     int[] right = new int[] {6, 3, -1, 5, -1, -1, 7, -1, -1};
     int[] data = new int[] {6, 2, 1, 4, 3, 5, 7, 9, 8};
     
+    int[][][] tree = new int[5][5][5];
+    // TODO: Make this work using 3D arrays
+    
     // left, right, root
     void postOrder(int index) {
         
