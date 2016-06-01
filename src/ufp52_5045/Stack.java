@@ -43,9 +43,12 @@ public class Stack {
             pointer--;
             System.out.println("The latest element has been removed/popped. \n");
             print();
+            
         } else {
             System.out.println("Stack underflow! \n");
         }
+        
+        
     }
     
     void print() {
