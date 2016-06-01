@@ -39,6 +39,7 @@ public class Stack {
     void pop() {
         
         if (pointer >= 0) {
+            
             pointer--;
             System.out.println("The latest element has been removed/popped. \n");
             print();
