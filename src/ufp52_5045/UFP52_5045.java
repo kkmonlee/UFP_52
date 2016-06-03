@@ -16,12 +16,11 @@ public class UFP52_5045 {
      */
     public static void main(String[] args) {
         
-        String postFix = "36 4 5 * -";
+        String inFix = " ( 4 + 8 ) * ( 6 - 5 ) ";
         
-        RPNv3 evaluateRPN = new RPNv3();
+        ShuntingYard sy = new ShuntingYard();
         
-        System.out.print(evaluateRPN.calculate(postFix));
-        
+        System.out.println(sy.infixToRPN(inFix));
         
 //        TreeArray tree = new TreeArray();
 //        
