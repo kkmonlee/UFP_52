@@ -7,25 +7,26 @@ package ufp52_5045;
 
 /**
  *
- * @author Atul Anand Sinha
+ * @author master
  */
-public class RPN {
+public class RPNv2 {
     
     Stack stack = new Stack();
     
-    int calculate(String[] arr) {
+    int calculate(String expression) {
         
-        int returnValue = 0;
+        int returnValue;
         String operators = "+-*/";
+        String symbol;
         
-        
-        for (String t : arr) {
-            if (!operators.contains(t)) {
-                stack.push(Integer.parseInt(t));
+        for (int i = 0; i < expression.length(); i++) {
+            symbol = expression.substring(i, i + 1);
+            if (!operators.contains(symbol)) {
+                stack.push(Integer.parseInt(symbol));
             } else {
                 int a = stack.pop(); // operand 2
                 int b = stack.pop(); // operand 1
-                int index = operators.indexOf(t);
+                int index = operators.indexOf(symbol);
                 
                 switch(index) {
                     case 0:

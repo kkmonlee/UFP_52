@@ -36,10 +36,12 @@ public class Stack {
         }
     }
     
-    void pop() {
+    int pop() {
+        
+        int value = 0;
         
         if (pointer >= 0) {
-            
+            value = arr[pointer];
             pointer--;
             System.out.println("The latest element has been removed/popped. \n");
             print();
@@ -47,7 +49,7 @@ public class Stack {
         } else {
             System.out.println("Stack underflow! \n");
         }
-        
+        return value;
         
     }
     

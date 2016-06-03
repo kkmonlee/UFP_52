@@ -16,9 +16,16 @@ public class UFP52_5045 {
      */
     public static void main(String[] args) {
         
-        TreeArray tree = new TreeArray();
+        String postFix = "12-34+*";
         
-        tree.preOrder(0);
+        RPNv2 evaluateRPN = new RPNv2();
+        
+        System.out.print(evaluateRPN.calculate(postFix));
+        
+        
+//        TreeArray tree = new TreeArray();
+//        
+//        tree.preOrder(0);
         
 //        BinaryTree b = new BinaryTree();
 //        b.insert(3);
