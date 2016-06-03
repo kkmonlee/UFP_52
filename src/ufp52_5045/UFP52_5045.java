@@ -16,9 +16,9 @@ public class UFP52_5045 {
      */
     public static void main(String[] args) {
         
-        String postFix = "12-34+*";
+        String postFix = "36 4 5 * -";
         
-        RPNv2 evaluateRPN = new RPNv2();
+        RPNv3 evaluateRPN = new RPNv3();
         
         System.out.print(evaluateRPN.calculate(postFix));
         
