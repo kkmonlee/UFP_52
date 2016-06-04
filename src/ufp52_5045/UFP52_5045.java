@@ -15,8 +15,15 @@ public class UFP52_5045 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ShuntingYardv2 yard = new ShuntingYardv2();
-        System.out.println(yard.evaluate("100 * ( 2 + 12 ) / 14"));
+        String input = "(100*(2+12)/14)";
+        InfixToPostfix intopost = new InfixToPostfix(input);
+        
+        String output;
+        output = intopost.calculate();
+        System.out.println("Postfix equivalent is: " + output + "\n");
+        
+//        ShuntingYardv2 yard = new ShuntingYardv2();
+//        System.out.println(yard.evaluate("100 * ( 2 + 12 ) / 14"));
         
 //        TreeArray tree = new TreeArray();
 //        
