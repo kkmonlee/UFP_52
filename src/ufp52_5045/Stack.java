@@ -48,6 +48,7 @@ public class Stack {
             
         } else {
             System.out.println("Stack underflow! \n");
+            System.exit(0);
         }
         return value;
         
@@ -67,4 +68,23 @@ public class Stack {
         
     }
     
+    char printPointer() {
+        return (char) pointer;
+    }
+    
+    char peek(char element) {
+        if (arr[pointer] == element) {
+            return element;
+        }
+        return 0;
+    }
+    
+    boolean isEmpty() {
+        return (pointer == -1);
+    }
+
+    // machine generated
+    boolean peek(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

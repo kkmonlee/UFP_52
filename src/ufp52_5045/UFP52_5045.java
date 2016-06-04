@@ -15,12 +15,8 @@ public class UFP52_5045 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        String inFix = " ( 4 + 8 ) * ( 6 - 5 ) ";
-        
-        ShuntingYard sy = new ShuntingYard();
-        
-        System.out.println(sy.infixToRPN(inFix));
+        ShuntingYardv2 yard = new ShuntingYardv2();
+        System.out.println(yard.evaluate("100 * ( 2 + 12 ) / 14"));
         
 //        TreeArray tree = new TreeArray();
 //        
