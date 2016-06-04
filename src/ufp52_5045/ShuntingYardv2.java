@@ -10,8 +10,8 @@ package ufp52_5045;
  * @author Atul Anand Sinha
  */
 public class ShuntingYardv2 {
-    Stack stackValues = new Stack();
-    Stack stackOps = new Stack();
+    Stack stackValues = new Stack("10");
+    Stack stackOps = new Stack("10");
     
     int evaluate(String expression) {
         char[] tokens = expression.toCharArray();
