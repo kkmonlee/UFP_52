@@ -13,11 +13,11 @@ public class Stack {
     
     
     int pointer;
-    final int capacity = 5;
+    int capacity = 10;
     int arr[] = new int[capacity];
     
-    Stack() {
-        
+    Stack(String size) {
+        capacity = Integer.valueOf(size);
         pointer = -1;
     }
     
