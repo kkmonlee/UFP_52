@@ -11,7 +11,7 @@ package ufp52_5045;
  */
 public class RPN {
     
-    Stack stack = new Stack();
+    Stack stack = new Stack("10");
     
     int calculate(String[] arr) {
         

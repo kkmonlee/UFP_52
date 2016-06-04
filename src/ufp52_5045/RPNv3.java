@@ -11,7 +11,7 @@ import java.util.StringTokenizer;
  */
 public class RPNv3 {
     
-    Stack stack = new Stack();
+    Stack stack = new Stack("10");
     
     int calculate(String expression) {
         
