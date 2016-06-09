@@ -15,12 +15,32 @@ public class UFP52_5045 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String input = "(100*(2+12)/14)";
-        InfixToPostfix intopost = new InfixToPostfix(input);
         
-        String output;
-        output = intopost.calculate();
-        System.out.println("Postfix equivalent is: " + output + "\n");
+        LinkedListv2 ll = new LinkedListv2();
+        
+        ll.add(4);
+        ll.add(56);
+        System.out.println("Size: " + ll.size());
+        System.out.println(ll.toString());
+        
+        ll.remove(0);
+        ll.add(93);
+        ll.add("Hello");
+        System.out.println("Size: " + ll.size());
+        System.out.println(ll.toString());
+        System.out.println(ll.get(2));
+        ll.add("Testing", 3);
+        System.out.println(ll.toString());
+        
+//        String input = "(100*(2+12)/14)";
+//        InfixToPostfix intopost = new InfixToPostfix(input);
+//        
+//        String output;
+//        output = intopost.calculate();
+//        System.out.println("Postfix equivalent is: " + output + "\n");
+        
+        
+        
         
 //        ShuntingYardv2 yard = new ShuntingYardv2();
 //        System.out.println(yard.evaluate("100 * ( 2 + 12 ) / 14"));
@@ -28,6 +48,9 @@ public class UFP52_5045 {
 //        TreeArray tree = new TreeArray();
 //        
 //        tree.preOrder(0);
+
+
+
         
 //        BinaryTree b = new BinaryTree();
 //        b.insert(3);
