@@ -15,6 +15,7 @@ public class LinkedList {
     int itemSize = 0;
     int currentLocation;
     
+    // Adds items (element) onto the item[] array
     void addItems(String element) {
         if (element != null) {
             item[itemSize] = element;
@@ -22,6 +23,7 @@ public class LinkedList {
         }
     }
     
+    // Deletes item (element) from the item[] array
     void deleteItems(String element) {
         int flag = 0;
         if (itemSize > 0) {
@@ -46,6 +48,7 @@ public class LinkedList {
         }
     }
     
+    // Prints all the elements in the array
     void viewItems() {
         if (itemSize > 0) {
             System.out.println("The elements in the Linked List are: ");

@@ -36,7 +36,7 @@ public class UFP52_5045 {
 //        ll.add("Testing", 3);
 //        System.out.println(ll.toString());
         
-        String input = "5+((1+2)*4)-3";
+        String input = "(300+23)*(43-21)/(84+7)";
         InfixToPostfix intopost = new InfixToPostfix(input);
         
         String output;
