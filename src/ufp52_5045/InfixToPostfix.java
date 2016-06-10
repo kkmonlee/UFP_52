@@ -14,28 +14,39 @@ public class InfixToPostfix {
     String input;
     String output = "";
     
+    // Constructor
     InfixToPostfix(String in) {
         input = in;
         int stackSize = input.length();
-        stack = new Stack3(stackSize);
+        stack = new Stack3(50);
     }
     
-    String calculate() {
+    // Goes through the string input (infix) to produce the output string (postfix)
+    String convert() {
         for (int j = 0; j < input.length(); j++) {
             char ch = input.charAt(j);
             switch (ch) {
                 case '+':
+                    output += " ";
                 case '-':
+                    output += " ";
                     getOperator(ch, 1);
+                    output += " ";
                     break;
                 case '*':
-                case '/':
+                    output += " ";
                     getOperator(ch, 2);
+                    output += " ";
+                    break;
+                case '/':
+                    output += " ";
+                    getOperator(ch, 3);
                     break;
                 case '(':
                     stack.push(ch);
                     break;
                 case ')':
+                    output += " ";
                     getParent(ch);
                     break;
                 default:
@@ -44,31 +55,37 @@ public class InfixToPostfix {
             }
         }
         while (!stack.isEmpty()) {
+            output += " ";
+            // Pop the remaining operators off the stack
             output = output + stack.pop();
         }
         System.out.println(" " + output);
         return output;
     }
     
+    // Processes the operator taking account of its precedence
     void getOperator(char op1, int precedence1) {
         
         while (!stack.isEmpty()) {
             char topOperator = (char) stack.pop();
             if (topOperator == '(') {
                 stack.push(topOperator);
-                break;
+                break; // end while
             } else {
                 int precedence2;
                 if (topOperator == '+' || topOperator == '-') {
                     precedence2 = 1;
+                    output += " ";
                 } else {
                     precedence2 = 2;
+                    output += " ";
                 }
                 
                 if (precedence2 < precedence1) {
                     stack.push(topOperator);
-                    break;
+                    break; // end while
                 } else {
+                   
                     output = output + topOperator;
                 }
             }
@@ -76,12 +93,14 @@ public class InfixToPostfix {
         stack.push(op1);
     }
     
+    // Pops the first opening bracket from the stack
     void getParent(char ch) {
         while (!stack.isEmpty()) {
             char chx = (char) stack.pop();
             if (chx == '(') {
                 break;
             } else {
+                output += " ";
                 output = output + chx;
             }
         }

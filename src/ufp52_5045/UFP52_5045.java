@@ -16,29 +16,34 @@ public class UFP52_5045 {
      */
     public static void main(String[] args) {
         
-        LinkedListv2 ll = new LinkedListv2();
+        RPNv3 rpn = new RPNv3();
+//        rpn.calculate(" 100 2 12 + 14 / * ");
         
-        ll.add(4);
-        ll.add(56);
-        System.out.println("Size: " + ll.size());
-        System.out.println(ll.toString());
         
-        ll.remove(0);
-        ll.add(93);
-        ll.add("Hello");
-        System.out.println("Size: " + ll.size());
-        System.out.println(ll.toString());
-        System.out.println(ll.get(2));
-        ll.add("Testing", 3);
-        System.out.println(ll.toString());
-        
-//        String input = "(100*(2+12)/14)";
-//        InfixToPostfix intopost = new InfixToPostfix(input);
+//        LinkedListv2 ll = new LinkedListv2();
 //        
-//        String output;
-//        output = intopost.calculate();
-//        System.out.println("Postfix equivalent is: " + output + "\n");
+//        ll.add(4);
+//        ll.add(56);
+//        System.out.println("Size: " + ll.size());
+//        System.out.println(ll.toString());
+//        
+//        ll.remove(0);
+//        ll.add(93);
+//        ll.add("Hello");
+//        System.out.println("Size: " + ll.size());
+//        System.out.println(ll.toString());
+//        System.out.println(ll.get(2));
+//        ll.add("Testing", 3);
+//        System.out.println(ll.toString());
         
+        String input = "5+((1+2)*4)-3";
+        InfixToPostfix intopost = new InfixToPostfix(input);
+        
+        String output;
+        output = intopost.convert();
+        System.out.println("Postfix equivalent is: " + output + "\n");
+        System.out.println("Which evaluates to: " + rpn.calculate(output));
+       
         
         
         
