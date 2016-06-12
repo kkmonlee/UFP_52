@@ -192,7 +192,7 @@ class Stack4 {
     }
     
     public static void main(String[] args) {
-        String infix = "(1+2)*(3+4)^(12-5)";
+        String infix = "23*(134-3^7*(3-5))";
         
         InfixToPostfixv2 converter = new InfixToPostfixv2(500);
         
