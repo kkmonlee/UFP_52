@@ -12,22 +12,23 @@ package ufp52_5045;
 public class LinkedList {
     final int capacity = 10;
     String item[] = new String[capacity];
-    int itemSize = 0;
+    int numItems = 0;
     int currentLocation;
     
     // Adds items (element) onto the item[] array
     void addItems(String element) {
         if (element != null) {
-            item[itemSize] = element;
-            itemSize++;
+            item[numItems] = element;
+            numItems++;
         }
     }
     
     // Deletes item (element) from the item[] array
+    // Compacts the array to remove the gap created by deletion
     void deleteItems(String element) {
         int flag = 0;
-        if (itemSize > 0) {
-            for (int i = 0; i < itemSize; i++) {
+        if (numItems > 0) {
+            for (int i = 0; i < numItems; i++) {
                 if (item[i].equals(element)) {
                     flag = 1;
                     currentLocation = i;
@@ -38,11 +39,11 @@ public class LinkedList {
             if (flag == 0) {
                 System.out.println("No such element to delete such as '" + element + "'");
             } else if (flag == 1) {
-                for (int i = currentLocation + 1; i < itemSize; i++) {
+                for (int i = currentLocation + 1; i < numItems; i++) {
                     item[currentLocation] = item[i];
                     currentLocation++;
                 }
-                itemSize--;
+                numItems--;
                 System.out.println("'" + element + "' element is deleted.");
             }
         }
@@ -50,10 +51,11 @@ public class LinkedList {
     
     // Prints all the elements in the array
     void viewItems() {
-        if (itemSize > 0) {
+        if (numItems > 0) {
             System.out.println("The elements in the Linked List are: ");
-            for (int i = 0; i < itemSize; i++) {
+            for (int i = 0; i < numItems; i++) {
                 System.out.print(item[i] + ", ");
+                System.out.println("index: " + i);
             }
             System.out.println();
         }
@@ -68,6 +70,8 @@ public class LinkedList {
         list.viewItems();
         
         list.deleteItems("b");
+        list.viewItems();
+        list.addItems("d");
         list.viewItems();
     }
 }

@@ -73,6 +73,7 @@ public class LinkedListv2 {
         }
         return current.getData();
     }
+    // TODO: Write a search method using by value
     
     // Removes the element at the specified position in the list
     public boolean remove(int index) {
@@ -98,6 +99,7 @@ public class LinkedListv2 {
         return listCount;
     }
     
+    // Prints out all elements in the LinkedList
     public String toString() {
         Node current = head.getNext();
         String output = "";
@@ -110,7 +112,7 @@ public class LinkedListv2 {
       
     private class Node {
         // Reference to next node in chain
-        // or value is null if there isn't a node
+        // or value is null if there isn't a node        current.setNext(current.getNext().getNext());
         Node next;
         // Data carried by the specified node
         // Any data type
