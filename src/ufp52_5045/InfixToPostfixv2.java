@@ -22,6 +22,9 @@ public class InfixToPostfixv2 {
     
     private static final char   POWER = '^';
     
+    private static final char   OBRACKET = '(',
+                                CBRACKET = ')';
+    
     /**
      * Constructor
      * @param capacity size of the stack
@@ -43,13 +46,13 @@ public class InfixToPostfixv2 {
      * @return true if c is an operator, false otherwise
      */
     private boolean isOperator(char c) {
-        return c == '+' ||
-               c == '-' || 
-               c == '*' || 
-               c == '/' || 
-               c == '^' || 
-               c == '(' || 
-               c == ')';
+        return c == ADD ||
+               c == SUBTRACT || 
+               c == MULTIPLY || 
+               c == DIVIDE || 
+               c == POWER || 
+               c == OBRACKET || 
+               c == CBRACKET;
     }
     
     /**
@@ -73,13 +76,13 @@ public class InfixToPostfixv2 {
         switch (op1) {
             case ADD:
             case SUBTRACT:
-                return !(op2 == '+' || op2 == '-');
+                return !(op2 == ADD || op2 == SUBTRACT);
             case MULTIPLY:
             case DIVIDE:
-                return op2 == '^' || op2 == '(';
+                return op2 == POWER || op2 == CBRACKET;
             case POWER:
-                return op2 == '(';
-            case '(':
+                return op2 == OBRACKET;
+            case OBRACKET:
                 return true;
             default:
                 return false;
@@ -115,9 +118,11 @@ public class InfixToPostfixv2 {
                 * Do: Pop the stack and add the popped value to the postfix string
                 * as well as a space.
                 */
-               while (!stack.isEmpty() && !lowerPrecedence(((String)stack.peek()).charAt(0), c)) {
-                   postfix.append(" ").append((String)stack.pop());
-                }
+               while (!stack.isEmpty() && !lowerPrecedence((stack.peek()).charAt(0), c)) {
+                   
+                   postfix.append(" ").append(stack.pop());
+               
+               }
                 
                /**
                 * If the first character of the token is a closing bracket, do:
@@ -127,12 +132,12 @@ public class InfixToPostfixv2 {
                 *   Otherwise:
                 *       Push the token onto the stack
                 */
-                if (c == ')') {
-                    String operator = (String)stack.pop();
+                if (c == CBRACKET) {
+                    String operator = stack.pop();
 
-                    while (operator.charAt(0)!= '(') {
+                    while (operator.charAt(0)!= OBRACKET) {
                         postfix.append(" ").append(operator);
-                        operator = (String)stack.pop();  
+                        operator = stack.pop();  
                     }
 
                 }
@@ -192,12 +197,15 @@ class Stack4 {
     }
     
     public static void main(String[] args) {
+        RPNv3 rpn = new RPNv3();
         String infix = "23*(134-3^7*(3-5))";
         
-        InfixToPostfixv2 converter = new InfixToPostfixv2(500);
+        InfixToPostfixv2 converter = new InfixToPostfixv2(infix.length());
         
         System.out.println("infix: " + infix);
-        System.out.println("postfix: " + converter.convertToPostfix(infix));
+        String n = converter.convertToPostfix(infix);
+        System.out.println("postfix: " + n);
+        System.out.println("evalutation: " + rpn.calculate(n));
     }
     
 }
