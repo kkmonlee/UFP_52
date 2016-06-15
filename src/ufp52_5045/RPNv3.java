@@ -16,7 +16,7 @@ public class RPNv3 {
     int calculate(String expression) {
         
         int returnValue;
-        String operators = "+-*/";
+        String operators = "+-*/^";
         String symbol;
         
         StringTokenizer token = new StringTokenizer(expression, " ");
@@ -44,6 +44,12 @@ public class RPNv3 {
                     case 3:
                         stack.push(b / a);
                         break;
+                    case 4:
+                        double result = Math.pow(b, a);
+                        int result2 = (int)result;
+                        
+                        stack.push(result2);
+                        break;
                 }
             }
         } // end while
@@ -53,5 +59,10 @@ public class RPNv3 {
         return returnValue;
     }
     
+    public static void main(String[] args) {
+        RPNv3 rpn = new RPNv3();
+        
+        rpn.calculate("2 7 ^");
+    }
     
 }
