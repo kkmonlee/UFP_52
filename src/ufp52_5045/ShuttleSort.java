@@ -8,7 +8,7 @@ package ufp52_5045;
 import java.util.Arrays;
 
 /**
- * Sorts an array of integers into ascending order: 
+ * Sorts an array of integers into ascending order iteratively: 
  * (FIRST PASS) 
  * Step 1:  Compares the first 2 numbers. If number on the right is smaller, 
  *          then swap.
@@ -20,7 +20,7 @@ import java.util.Arrays;
 public class ShuttleSort {
 
     /**
-     * Sorts an array of integers in ascending orders.
+     * Sorts an array of integers in ascending orders iteratively.
      *
      * @param arr the array of elements
      */
