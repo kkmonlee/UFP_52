@@ -19,17 +19,24 @@ public class ShuttleSortv2 {
     
     static int data[] = {9, 5, 1, 4, 7, 2, 3, 8, 6, 10};
     
-    static void sort(int m, int n) {
-        if ((data[m] > data[n])) {
+    /**
+     * Sorts an array of integers called data[] in ascending order.
+     * Sorts a data pair with index given (first element of the pair)
+     * 
+     * @param m Index
+     */
+    static void sort(int m) {
+        
+        if ((data[m] > data[m + 1])) {
+            
             int temp = data[m];
-            data[m] = data[n];
-            data[n] = temp;
+            data[m] = data[m + 1];
+            data[m + 1] = temp;
             
             m--;
-            n--;
             
             if (m != -1) {
-                sort(m, n);
+                sort(m);
             }
         }
     }
@@ -44,10 +51,10 @@ public class ShuttleSortv2 {
         }
         
         for (int i = 0; i < numElements - 1; i++) {
-            sort(i, i + 1);
+            sort(i);
         }
         
-        System.out.println("Sorted array: \n");
+        System.out.println("\nSorted array: \n");
         for (int d : data) {
             System.out.print(d + ", ");
         }
